@@ -1,6 +1,7 @@
+import requests
 import os
 from dotenv import load_dotenv
-import requests
+from datetime import datetime
 
 # ==========================
 # Weather App
@@ -32,6 +33,12 @@ try:
 
         wind_speed = data["wind"]["speed"]
 
+        sunrise = data["sys"]["sunrise"]
+        sunset = data["sys"]["sunset"]
+
+        sunrise_time = datetime.fromtimestamp(sunrise).strftime("%I:%M %p")
+        sunset_time = datetime.fromtimestamp(sunset).strftime("%I:%M %p")
+
         print("\n========== WEATHER ==========")
         print(f"City        : {city_name}, {country}")
         print(f"Weather     : {weather}")
@@ -41,6 +48,8 @@ try:
         print(f"Humidity    : {humidity}%")
         print(f"Pressure    : {pressure} hPa")
         print(f"Wind Speed  : {wind_speed} m/s")
+        print(f"🌅 Sunrise   : {sunrise_time}")
+        print(f"🌇 Sunset    : {sunset_time}")
         print("================================")
     else:
         print("City not found.")
