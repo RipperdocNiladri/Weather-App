@@ -28,52 +28,62 @@ weather_icons = {
 }
 
 # User Input
-city = input("Enter city name: ")
+while True:
+    
+    city = input("Enter city name: ")
 
 # API Request
-url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
+    url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
 
 # Data Processing
-try:
-    response = requests.get(url)
-    data = response.json()
+    try:
+        response = requests.get(url)
+        data = response.json()
 
-    if response.status_code == 200:
-        city_name = data["name"]
-        country = data["sys"]["country"]
+        if response.status_code == 200:
+            city_name = data["name"]
+            country = data["sys"]["country"]
 
-        temperature = data["main"]["temp"]
-        feels_like = data["main"]["feels_like"]
-        humidity = data["main"]["humidity"]
-        pressure = data["main"]["pressure"]
+            temperature = data["main"]["temp"]
+            feels_like = data["main"]["feels_like"]
+            humidity = data["main"]["humidity"]
+            pressure = data["main"]["pressure"]
 
-        weather = data["weather"][0]["main"]
-        description = data["weather"][0]["description"]
-        icon = weather_icons.get(weather, "🌍")
+            weather = data["weather"][0]["main"]
+            description = data["weather"][0]["description"]
+            icon = weather_icons.get(weather, "🌍")
 
-        wind_speed = data["wind"]["speed"]
+            wind_speed = data["wind"]["speed"]
 
-        sunrise = data["sys"]["sunrise"]
-        sunset = data["sys"]["sunset"]
+            sunrise = data["sys"]["sunrise"]
+            sunset = data["sys"]["sunset"]
 
-        sunrise_time = datetime.fromtimestamp(sunrise).strftime("%I:%M %p")
-        sunset_time = datetime.fromtimestamp(sunset).strftime("%I:%M %p")
+            sunrise_time = datetime.fromtimestamp(sunrise).strftime("%I:%M %p")
+            sunset_time = datetime.fromtimestamp(sunset).strftime("%I:%M %p")
 
 # Output
-        print("\n========== WEATHER ==========")
-        print(f"City        : {city_name}, {country}")
-        print(f"Weather     : {weather} {icon}")
-        print(f"Description : {description}")
-        print(f"Temperature : {temperature} °C")
-        print(f"Feels Like  : {feels_like} °C")
-        print(f"Humidity    : {humidity}%")
-        print(f"Pressure    : {pressure} hPa")
-        print(f"Wind Speed  : {wind_speed} m/s")
-        print(f"🌅 Sunrise   : {sunrise_time}")
-        print(f"🌇 Sunset    : {sunset_time}")
-        print("================================")
-    else:
-        print("City not found.")
-except Exception as e:
-    print("Error:", e)
+            print("╔════════════════════════════════════════════╗")
+            print("             🌤 WEATHER REPORT                ")
+            print("╠════════════════════════════════════════════╣")
+            print(f"City        : {city_name}, {country}")
+            print(f"Weather     : {weather} {icon}")
+            print(f"Description : {description}")
+            print(f"Temperature : {temperature} °C")
+            print(f"Feels Like  : {feels_like} °C")
+            print(f"Humidity    : {humidity}%")
+            print(f"Pressure    : {pressure} hPa")
+            print(f"Wind Speed  : {wind_speed} m/s")
+            print(f"🌅 Sunrise   : {sunrise_time}")
+            print(f"🌇 Sunset    : {sunset_time}")
+            print("===============================================")
+        else:
+            print("City not found.")
+    except Exception as e:
+        print("Error:", e)
+
+    again = input("\nsearch another city? (y/n): ").lower()
+
+    if again !="y":
+        print("\nThanks for using weather app!")
+        break
 
