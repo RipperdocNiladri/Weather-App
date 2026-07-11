@@ -15,15 +15,15 @@ API_KEY = os.getenv("OPENWEATHER_API_KEY")
 
 # Constants (weather_icons)
 weather_icons = {
-    "Clear": "☀",
-    "Clouds": "☁",
-    "Rain": "🌧",
-    "Drizzle": "🌦",
-    "Thunderstorm": "⛈",
-    "Snow": "❄",
-    "Mist": "🌫",
+    "Clear": "☀️",
+    "Clouds": "☁️",
+    "Rain": "🌧️",
+    "Drizzle": "🌦️",
+    "Thunderstorm": "⛈️",
+    "Snow": "❄️",
+    "Mist": "༄.°",
     "Fog": "🌫",
-    "Haze": "🌫",
+    "Haze": "･༄",
     "Smoke": "💨"
 }
 
@@ -65,16 +65,16 @@ while True:
             print("╔════════════════════════════════════════════╗")
             print("             🌤 WEATHER REPORT                ")
             print("╠════════════════════════════════════════════╣")
-            print(f"City        : {city_name}, {country}")
-            print(f"Weather     : {weather} {icon}")
-            print(f"Description : {description}")
-            print(f"Temperature : {temperature} °C")
-            print(f"Feels Like  : {feels_like} °C")
-            print(f"Humidity    : {humidity}%")
-            print(f"Pressure    : {pressure} hPa")
-            print(f"Wind Speed  : {wind_speed} m/s")
-            print(f"🌅 Sunrise   : {sunrise_time}")
-            print(f"🌇 Sunset    : {sunset_time}")
+            print(f"📍City          : {city_name}, {country}")
+            print(f"🌍Weather       : {weather} {icon}")
+            print(f"📝Description   : {description}")
+            print(f"🌡️Temperature    : {temperature} °C")
+            print(f"🥵Feels Like    : {feels_like} °C")
+            print(f"💧Humidity      : {humidity}%")
+            print(f"🎈Pressure      : {pressure} hPa")
+            print(f"💨Wind Speed    : {wind_speed} m/s")
+            print(f"🌅 Sunrise      : {sunrise_time}")
+            print(f"🌇 Sunset       : {sunset_time}")
             print("===============================================")
         else:
             print("City not found.")
@@ -87,4 +87,4 @@ while True:
         print("\nThanks for using weather app!")
         break
 
-#Cheaking if Git Bash is working
+
