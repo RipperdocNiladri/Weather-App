@@ -4,11 +4,19 @@ A simple Python Weather App using the OpenWeatherMap API.
 
 ## Features
 
+- User Time & Date
+- Location Time & Date
+- City, Country
 - Current Weather
+- Coordinates(Latitude & Longitude)
 - Temperature
 - Humidity
 - Wind Speed
+- Wind Direction
+- Visibility
 - Pressure
+- Sunrise
+- Sunset
 
 ## Installation
 
