@@ -87,3 +87,4 @@ while True:
         print("\nThanks for using weather app!")
         break
 
+#Cheaking if Git Bash is working
